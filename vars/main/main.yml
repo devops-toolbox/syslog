@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+syslog_repos_create: "{{ _syslog_repos_create['all']
+  | union ( _syslog_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+syslog_repos_download: "{{ _syslog_repos_download['all']
+  | union ( _syslog_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+syslog_templates_copy: "{{ _syslog_templates_copy['all']
+  | union ( _syslog_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+syslog_services_enable: "{{ _syslog_services_enable['all']
+  | union ( _syslog_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+syslog_selinux_enable: "{{ _syslog_selinux_enable['all']
+  | union ( _syslog_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+syslog_packages_remove: "{{ _syslog_packages_remove['all']
+  | union ( _syslog_packages_remove[my_os]
+  | default([]) ) }}"
+syslog_packages_repos: "{{ _syslog_packages_repos['all']
+  | union ( _syslog_packages_repos[my_os]
+  | default([]) ) }}"
+syslog_packages_prereq: "{{ _syslog_packages_prereq['all']
+  | union ( _syslog_packages_prereq[my_os]
+  | default([]) ) }}"
+syslog_packages_install: "{{ _syslog_packages_install['all']
+  | union ( _syslog_packages_install[my_os]
+  | default([]) ) }}"

@@ -1,0 +1,27 @@
+---
+# Install syslog packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ syslog_packages_remove }}"
+    state: absent
+  become: true
+  when: syslog_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ syslog_packages_repos }}"
+    state: "{{ syslog_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ syslog_packages_prereq }}"
+    state: "{{ syslog_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ syslog_packages_install }}"
+    state: "{{ syslog_packages_state }}"
+  become: true

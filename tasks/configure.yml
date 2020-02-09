@@ -1,0 +1,11 @@
+---
+# Configure syslog
+
+- name: service is enabled and started
+  service:
+    name: "{{ item }}"
+    enabled: true
+    state: started
+  become: true
+  loop: "{{ syslog_services_enable }}"
+  when: syslog_enable_service

@@ -8,10 +8,10 @@ syslog: Syslog
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.syslog](https://galaxy.ansible.com/devops-toolbox.syslog)
+[https://galaxy.ansible.com/devopstoolbox.syslog](https://galaxy.ansible.com/devopstoolbox.syslog)
 
 ```bash
-ansible-galaxy install devops-toolbox.syslog
+ansible-galaxy install devopstoolbox.syslog
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: syslog is configured
       import_role:
-        name: devops-toolbox.syslog
+        name: devopstoolbox.syslog
       vars:
         syslog_packages_state: present
         syslog_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
